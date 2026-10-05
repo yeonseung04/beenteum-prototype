@@ -31,6 +31,10 @@ npm run dev
 
 [▶ 프로토타입 시연 영상 보기](https://drive.google.com/file/d/1Evv0YSd5QLEdgiZH33LEaovbfw20yF0O/view?usp=sharing)
 
+## 최종 수정 시연 영상
+
+[▶ 프로토타입 시연 영상 보기](https://drive.google.com/file/d/19GDSuUWxjk__ODOgldtT9OmPZLASFCjz/view?usp=sharing)
+
 ## 기술 스택
 
 - React
