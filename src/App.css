@@ -238,8 +238,6 @@ nav button:hover {
   font-size: 13px;
 }
 
-/* 기존 코드에서 조건 버튼을 button으로 만든 경우 */
-
 .conditionButtons {
   display: flex;
   justify-content: center;
@@ -562,8 +560,6 @@ nav button:hover {
   color: #777;
 }
 
-/* 관리자 리스트 */
-
 .adminList {
   max-width: 900px;
   margin: 30px auto;
@@ -629,59 +625,9 @@ nav button:hover {
 }
 
 /* =========================
-   모바일
-========================= */
-
-@media (max-width: 700px) {
-  header {
-    height: auto;
-    min-height: 75px;
-    padding: 18px 20px;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  nav {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .page {
-    width: calc(100% - 30px);
-    padding-top: 45px;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .pageTitle {
-    font-size: 32px;
-  }
-
-  .purposeGrid,
-  .conditionGrid,
-  .cafeGrid,
-  .compareGrid,
-  .adminMenuGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .detailInfo {
-    grid-template-columns: 1fr;
-  }
-
-  .adminListCard {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-/* =========================
    현재 JSX 맞춤 수정
 ========================= */
 
-/* 헤더 */
 .header {
   height: 88px;
   padding: 0 48px;
@@ -708,7 +654,6 @@ nav button:hover {
   letter-spacing: -1px;
 }
 
-/* 영어 작은 제목 */
 .eyebrow {
   margin: 0 0 14px;
   color: #927354;
@@ -785,7 +730,6 @@ nav button:hover {
   font-size: 13px;
 }
 
-/* 방문 목적 */
 .purposeSection {
   max-width: 1000px;
   margin: 0 auto;
@@ -826,12 +770,10 @@ nav button:hover {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   border: 1px solid #dedbd3;
   border-radius: 18px;
   background: white;
   padding: 25px 18px;
-
   color: #222;
   text-align: center;
   cursor: pointer;
@@ -879,7 +821,6 @@ nav button:hover {
 .conditionPage h1 {
   margin: 0;
   padding: 0;
-
   color: #222;
   font-size: 44px;
   font-weight: 700;
@@ -909,19 +850,15 @@ nav button:hover {
 .conditionCard {
   min-width: 145px;
   min-height: 75px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-
   border: 1px solid #d9d5cd;
   border-radius: 12px;
   background: white;
-
   color: #333;
   padding: 14px 20px;
-
   font-size: 15px;
   cursor: pointer;
   transition: 0.2s;
@@ -950,21 +887,16 @@ nav button:hover {
   line-height: 1.3;
 }
 
-/* 조건 추천 버튼 */
 .conditionPage .primaryButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   margin-top: 5px;
   padding: 14px 24px;
-
   border: none;
   border-radius: 10px;
-
   background: #222;
   color: white;
-
   font-size: 14px;
   font-weight: 600;
 }
@@ -973,7 +905,6 @@ nav button:hover {
   background: #444;
 }
 
-/* 뒤로가기 위치 */
 .page > .backButton {
   margin-top: 5px;
 }
@@ -1280,6 +1211,50 @@ nav button:hover {
 ========================= */
 
 @media (max-width: 700px) {
+  header {
+    height: auto;
+    min-height: 75px;
+    padding: 18px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .page {
+    width: calc(100% - 30px);
+    padding-top: 45px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .pageTitle {
+    font-size: 32px;
+  }
+
+  .purposeGrid,
+  .conditionGrid,
+  .cafeGrid,
+  .compareGrid,
+  .adminMenuGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .adminListCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .header {
     height: auto;
     padding: 18px 20px;
@@ -1336,4 +1311,143 @@ nav button:hover {
   .infoGrid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================
+   신규 개선 피드백 스타일 모듈
+========================= */
+
+/* 1. 토스트 알림 */
+.customToast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* 2. QR 스캔 모의 모달 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modalCard {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 380px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modalIcon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.modalCard h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.modalCard p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 4. 관리자 테이블 정돈 */
+.adminEditTable {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd9d0;
+}
+
+.adminEditTable th,
+.adminEditTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.adminEditTable th {
+  width: 30%;
+  background-color: #f7f5f0;
+  font-weight: 600;
+  color: #444;
+}
+
+.adminEditTable input,
+.adminEditTable select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.editButtons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* 5. 지도 더미 UI */
+.mapDummyBox {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #eae7df;
+  border-radius: 14px;
+  border: 1px dashed #b8b2a4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #555;
+}
+
+.mapIcon {
+  font-size: 22px;
+}
+
+.mapDummyBox p {
+  margin: 0;
+  font-size: 14px;
 }
